@@ -1,0 +1,412 @@
+/* Style de base pour l'ensemble du site */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    display: flex;  /* Utilisation de Flexbox */
+    flex-direction: column;  /* Organiser les éléments en colonne */
+    height: 100vh;  /* Prendre toute la hauteur de la fenêtre */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between; /* Texte à gauche, photo à droite */
+    align-items: center; /* Aligne verticalement */
+    gap: 20px; /* Espacement entre le texte et la photo */
+}
+
+.about-text {
+    flex: 1; /* Le texte prend tout l'espace disponible à gauche */
+}
+
+.profile-container {
+    display: flex;
+    justify-content: flex-end; /* Place la photo à droite */
+    align-items: center;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Cercle parfait */
+    overflow: hidden;
+    border: 5px solid #ccc; /* Bordure grise */
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajuste l'image pour remplir le cercle */
+}
+
+
+/* Conteneur principal avec une image de fond */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: url(../image/background.jpg) no-repeat center center/cover;
+    position: relative;
+}
+
+/* Overlay sombre pour le contraste */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Texte principal */
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 2s ease-in-out;
+}
+.diplome-images {
+    display: flex;
+    justify-content: center; /* Centre les images */
+    gap: 20px; /* Ajoute de l'espace entre les images */
+    margin-top: 20px;
+}
+
+.diplome-images div {
+    text-align: center; /* Centre l'image et son texte */
+}
+
+.diplome-images img {
+    width: 200px; /* Largeur des images */
+    height: auto; /* Garde les proportions */
+    border: 2px solid #ccc; /* Bordure grise */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.diplome-images p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+
+.name {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    animation: glow 1.5s infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Logo avec une icône Font Awesome */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    font-size: 30px; /* Taille de l'icône */
+    color: white;
+    cursor: pointer;
+}
+
+.logo:hover {
+    color: blue; /* Change la couleur lors du survol */
+}
+
+/* Bouton de menu */
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.menu-btn:hover {
+    background-color: #575757;
+}
+
+/* Menu déroulant */
+.menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #333;
+    width: 140px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Affichage du menu au survol du bouton ou du menu */
+.menu-btn:hover + .menu,
+.menu:hover {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.menu a {
+    display: block;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #575757;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.menu a:last-child {
+    border-bottom: none;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    margin-top: 20px;
+    flex-grow: 1;  /* Cette propriété permet au contenu principal de prendre toute la place restante */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;  /* Cela force le footer à aller en bas de la page */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Style spécifique pour les sections */
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    font-size: 1.1rem;
+}
+
+/* Style des formulaires */
+form input[type="text"], form input[type="email"], form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+/* Style du quizz */
+#quizForm {
+    margin-top: 20px;
+}
+
+#quizForm label {
+    font-size: 1.1rem;
+}
+
+#quizForm input[type="radio"] {
+    margin-right: 10px;
+}
+
+#quizForm button {
+    margin-top: 20px;
+}
+
+/* Animation de brillance pour le texte */
+@keyframes glow {
+    from {
+        text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.6), 0px 0px 15px rgba(255, 255, 255, 0.4);
+    }
+    to {
+        text-shadow: 0px 0px 20px rgba(255, 255, 255, 1), 0px 0px 30px rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* page events */
+/* Main Section */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    color: #2c3e50; /* Bleu foncé élégant */
+    margin-bottom: 15px;
+}
+
+/* Articles */
+article {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+article:last-child {
+    border-bottom: none;
+}
+
+article h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+article p {
+    margin: 5px 0;
+}
+
+/* Listes de certificats */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li strong {
+    color: #2c3e50; /* Bleu foncé élégant */
+}
+
+ul li a {
+    color: #3498db; /* Bleu vif */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+ul li a:hover {
+    color: #2980b9; /* Bleu un peu plus foncé */
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    header nav a {
+        display: block;
+        margin: 5px 0;
+    }
+}
+
